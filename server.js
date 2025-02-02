@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const morgan = require('morgan');
 const path = require('path');
 const { title } = require('process');
-const cors = require('cors');
+// const cors = require('cors');
 
 const app = express();
 const PORT = process.env.PORT || 8082; // Step 1
@@ -25,7 +25,7 @@ mongoose.connection.on('connected', () => {
     console.log('Mongoose is connected!!!!');
 });
 
-app.use(cors());
+// app.use(cors());
 
 // HTTP request logger
 app.use(morgan('tiny'));
