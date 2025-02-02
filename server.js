@@ -5,14 +5,12 @@ const mongoose = require('mongoose');
 const morgan = require('morgan');
 const path = require('path');
 const { title } = require('process');
+const cors = require('cors');
 
 const app = express();
 const PORT = process.env.PORT || 8082; // Step 1
 
 console.log("MongoDB URI:", process.env.MONGODB_URI);
-
-// Assign the variable correctly
-// const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/mern_youtube';
 
 const routes = require('./routes/api');
 
@@ -26,6 +24,8 @@ mongoose.connect('mongodb://localhost/mern_youtube', {
 mongoose.connection.on('connected', () => {
     console.log('Mongoose is connected!!!!');
 });
+
+app.use(cors());
 
 // HTTP request logger
 app.use(morgan('tiny'));

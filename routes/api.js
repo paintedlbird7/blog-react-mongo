@@ -14,6 +14,13 @@ const BlogPost = require('../models/blogPosts');
        });
 });
 
+router.post('/save', (req, res) => {
+  console.log('Body: ', req.body )
+    res.json({
+        msg: "We received your data!!!!"
+    });
+ })
+
 router.get('/name', (req, res) => {
    const data = {
        username: 'larios',
