@@ -47,7 +47,7 @@ class App extends React.Component {
     .then(() => {
       console.log('Data has been sent to the server');
       this.resetUserInputs();
-      // this.getBlogPost();
+      this.getBlogPost();
     })
     .catch(() => {
       console.log('Internal server error');
