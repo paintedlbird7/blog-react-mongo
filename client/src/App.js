@@ -61,6 +61,25 @@ resetUserInputs = () => {
   });
 };
 
+displayBlogPost = (posts, index) => {
+  if (!posts.length) return null;
+  return posts.map((post, index) => (
+    <div key={index}>
+      <h3>{post.title}</h3>
+      <p>{post.body}</p>
+    </div>
+  ));
+};
+// displayBlogPost = (posts) => {
+//   if (!posts.length) return null;
+//   return posts.map((post, index) => (
+//     <div key={index} className="blog-post__display">
+//       <h3>{post.title}</h3>
+//       <p>{post.body}</p>
+//     </div>
+//   ));
+// };
+
   render() {
     console.log('State: ', this.state);
     // JSX
@@ -90,8 +109,12 @@ resetUserInputs = () => {
               onChange={this.handleChange}
             >
             </textarea>
-            <button>Submit</button>
+            <button>Submit</button>   
         </form>
+
+        <div className="blog-">
+        {this.displayBlogPost(this.state.posts)}
+       </div>
       </div>
     )
   }
