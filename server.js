@@ -25,6 +25,9 @@ mongoose.connection.on('connected', () => {
     console.log('Mongoose is connected!!!!');
 });
 
+// Data parsing
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 // app.use(cors());
 
 // HTTP request logger
