@@ -13,20 +13,21 @@ router.get("/", (req, res) => {
       console.log("error: ", daerrorta);
     });
 });
-
+// do not refactor, no longer receives call backs, use aysnc await
 router.post('/save', async (req, res) => {
     try {
       const data = req.body;
       const newBlogPost = new BlogPost(data);
-      
-      await newBlogPost.save(); // ✅ No callbacks, using async/await
+  
+      await newBlogPost.save(); // ✅ Use async/await
   
       res.json({ msg: "Your data has been saved!!!!" });
     } catch (error) {
       console.error("Save error:", error);
       res.status(500).json({ msg: "Sorry, internal server error" });
     }
-  });  
+  });
+  
 
 router.get("/name", (req, res) => {
   const data = {

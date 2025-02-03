@@ -9,14 +9,9 @@ class App extends React.Component {
     posts: []
   };
 
-  handleChange = (event) => {
-    const target = event.target;
-    const name = target.name;
-    const value = target.value;
-  
-    this.setState({ 
-      [name]: value 
-    });
+  handleChange = ({ target }) => {
+    const { name, value } = target;
+    this.setState({ [name]: value });
   };
 
   submit = (event) => {
@@ -34,17 +29,20 @@ class App extends React.Component {
     })
     .then(() => {
       console.log('Data has been sent to the server');
-      // this.resetUserInputs();
+      this.resetUserInputs();
       // this.getBlogPost();
     })
     .catch(() => {
       console.log('Internal server error');
     });;
 };
-  // handleChange = ({ target }) => {
-  //   const { name, value } = target;
-  //   this.setState({ [name]: value });
-  // };
+
+resetUserInputs = () => {
+  this.setState({
+    title: '',
+    body: ''
+  });
+};
 
   render() {
     console.log('State: ', this.state);
@@ -53,7 +51,6 @@ class App extends React.Component {
       <div>
         <h2>Welcome to my Blog app</h2>
         <form onSubmit={this.submit}>
-        >
         <div className="form-input">
         <input 
               type="text"
