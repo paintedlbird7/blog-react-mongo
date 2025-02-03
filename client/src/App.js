@@ -63,28 +63,20 @@ resetUserInputs = () => {
 
 displayBlogPost = (posts, index) => {
   if (!posts.length) return null;
+
   return posts.map((post, index) => (
-    <div key={index}>
+    <div key={index} className="blog-post__display">
       <h3>{post.title}</h3>
       <p>{post.body}</p>
     </div>
   ));
 };
-// displayBlogPost = (posts) => {
-//   if (!posts.length) return null;
-//   return posts.map((post, index) => (
-//     <div key={index} className="blog-post__display">
-//       <h3>{post.title}</h3>
-//       <p>{post.body}</p>
-//     </div>
-//   ));
-// };
 
   render() {
     console.log('State: ', this.state);
     // JSX
     return (
-      <div>
+      <div className="app">
         <h2>Welcome to my Blog app</h2>
         <form onSubmit={this.submit}>
         <div className="form-input">
